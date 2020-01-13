@@ -4,7 +4,7 @@
     <lazy-img class="parallax-img-container-inner"
         {% if category.details[0].imagePath is not empty %}image-url="/documents/{{ category.details[0].imagePath }}"{% endif %}
         :is-background-image="true">
-        <div class="container-max">
+        <div class="container">
             <div>
                 <div class="parallax-text-container">
                     <h1 class="h2 pt-4 category-title">{{ category.details[0].name | raw }}</h1>

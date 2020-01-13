@@ -1,6 +1,6 @@
 <script type="x/template" id="vue-cookie-bar">
     <div class="cookie-bar{% if not isShopBuilder %} fixed-bottom{% endif %}" :class="{ 'out': !isVisible, 'border-top bg-white': isVisible }">
-        <div class="container-max" v-if="isVisible">
+        <div class="container" v-if="isVisible">
             <div class="row py-3" v-show="!isExpanded" :class="classes" :style="styles">
                 <div class="col-12 col-md-8">
                     {% autoescape false %}

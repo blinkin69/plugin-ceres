@@ -8460,6 +8460,447 @@ a.close.disabled {
 
 
 
+// ==========================================================================
+// Custom styles
+// ==========================================================================
+
+// global
+/// mimics the image-background: cover; behaviour but with img element
+///
+/// @author Bruno Fenzl
+///
+/// @example scss - Basic Usage HTML
+///     <div class="img-cover-container">
+///         img class="" src="">
+///     </div>
+@mixin img-cover {
+    position: relative;
+    overflow: hidden;
+
+    & > img {
+        position: absolute;
+        top: -9999px;
+        right: -9999px;
+        bottom: -9999px;
+        left: -9999px;
+        min-width: 100%;
+        min-height: 100%;
+        margin: auto;
+    }
+}
+
+/// mimics the image-background: contain; behaviour but with img element
+///
+/// @author Bruno Fenzl
+///
+/// @example scss - Basic Usage HTML
+///     <div class="img-contain-container">
+///         img src="">
+///     </div>
+@mixin img-contain {
+    position: relative;
+    overflow: hidden;
+
+    & > noscript,
+    a > img {
+        position: absolute;
+        top: -9999px;
+        right: -9999px;
+        bottom: -9999px;
+        left: -9999px;
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 100%;
+        margin: auto;
+    }
+
+    & .owl-carousel,
+    & .owl-stage-outer,
+    & .owl-stage,
+    & .owl-item {
+        height: 100%;
+    }
+
+    & .owl-item img {
+        position: absolute;
+        top: -9999px;
+        right: -9999px;
+        bottom: -9999px;
+        left: -9999px;
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 100%;
+        margin: auto;
+    }
+}
+
+@mixin reset-list() {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+@mixin context-bg($color) {
+    color: color-yiq($color);
+    background-color: $color;
+}
+
+
+@each $color, $value in map-merge($theme-colors, ("white": $white)) {
+    .bg-#{$color} {
+        @include context-bg($value);
+    }
+}
+
+.bg-cover {
+    background-size: cover !important; // stylelint-disable-line declaration-no-important
+}
+.bg-contain {
+    background-size: contain !important; // stylelint-disable-line declaration-no-important
+}
+.bg-auto {
+    background-size: auto !important; // stylelint-disable-line declaration-no-important
+}
+.bg-scroll {
+    background-attachment: scroll !important; // stylelint-disable-line declaration-no-important
+}
+.bg-repeat {
+    background-repeat: repeat !important; // stylelint-disable-line declaration-no-important
+}
+
+.input-group {
+
+    .input-unit + .input-group-btn {
+        padding-bottom: $grid-gutter-width/2;
+
+        .btn {
+            height: calc(2.8em + 1px);
+        }
+    }
+
+    &.vert {
+        .input-group-btn {
+            display: block;
+            width: 100%;
+
+            .btn {
+                width: 100%;
+                margin: 0;
+            }
+        }
+
+        //.form-control:not(:last-child),
+        .input-group-addon:not(:last-child),
+        .input-group-btn:not(:last-child) > .btn,
+        .input-group-btn:not(:last-child) > .btn-group > .btn,
+        .input-group-btn:not(:last-child) > .dropdown-toggle,
+        .input-group-btn:not(:first-child) > .btn:not(:last-child):not(.dropdown-toggle),
+        .input-group-btn:not(:first-child) > .btn-group:not(:last-child) > .btn {
+            @include border-bottom-radius(0);
+            @include border-top-radius($border-radius);
+            border-bottom: none;
+        }
+        .input-group-addon:not(:last-child) {
+            border-bottom: 0;
+        }
+        .input-group .form-control:not(:first-child),
+        .input-group-addon:not(:first-child),
+        .input-group-btn:not(:first-child) > .btn,
+        .input-group-btn:not(:first-child) > .btn-group > .btn,
+        .input-group-btn:not(:first-child) > .dropdown-toggle,
+        .input-group-btn:not(:last-child) > .btn:not(:first-child),
+        .input-group-btn:not(:last-child) > .btn-group:not(:first-child) > .btn {
+            @include border-bottom-radius($border-radius);
+            @include border-top-radius(0);
+            border-top: none;
+        }
+        .form-control + .input-group-addon:not(:first-child) {
+            border-top: 0;
+        }
+
+        .form-control {
+            display: block;
+            float: none;
+            border-radius: 0 !important;
+        }
+    }
+}
+
+button:focus {
+    outline: none;
+}
+
+// button combinations
+.btn-group.extended,
+.input-group.extended {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    .extended {
+        -webkit-box-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
+
+        .btn {
+            width: 100%;
+        }
+    }
+
+    .input-group-btn {
+        width: auto;
+    }
+}
+
+.btn {
+    word-break: break-word;
+    outline: 0 !important;
+
+    & .btn-label {
+        &.btn-trans {
+            background: transparent;
+        }
+    }
+
+    & > .fa {
+        float: right;
+
+        &.default-float {
+            float: none;
+        }
+    }
+
+    & > span + .fa {
+        margin-top: 1px;
+        margin-left: 5px;
+    }
+
+    &.btn-medium {
+        min-width: 10rem;
+    }
+
+    &.btn-md {
+        padding-top: .8rem;
+        padding-bottom: .8rem;
+    }
+
+    &.btn-medium-large {
+        min-width: 12rem;
+    }
+
+    &.btn-large {
+        min-width: 15rem;
+    }
+
+    &.btn-block {
+        > .fa {
+            margin-top: 0;
+            line-height: inherit;
+        }
+    }
+}
+
+.btn-xs-max-width {
+    @include media-breakpoint-down(xs) {
+        width: 100% !important;
+    }
+}
+
+.btn-labeled {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    @extend .small;
+
+    -webkit-transition: all 200ms;
+
+    transition: all 200ms;
+
+    .btn-label {
+        position: relative;
+        right: -#{$btn-padding-x-sm};
+        display: inline-block;
+        padding: $btn-padding-y-sm $btn-padding-x-sm;
+        background-color: rgba(0, 0, 0, .15);
+        border-top-right-radius: $border-radius-sm;
+        border-bottom-right-radius: $border-radius-sm;
+    }
+
+    &.label-right {
+        .btn-label {
+            right: auto;
+            left: -#{$btn-padding-x-sm};
+        }
+    }
+
+
+    &.btn-link {
+        padding-right: 0;
+        padding-left: 0;
+
+        .btn-label {
+            padding: $btn-padding-y-sm 0;
+            background-color: rgba(0, 0, 0, 0);
+        }
+    }
+}
+
+.btn-icon {
+    padding: .6rem;
+    .fa {
+        text-align: center;
+    }
+
+    &.btn-sm {
+        padding: .4rem;
+    }
+
+    &.btn-lg {
+        padding: .95rem;
+    }
+
+    &.btn-circle {
+        border-radius: 50%;
+    }
+}
+
+.btn-default {
+    @include button-variant($gray-300, $gray-300);
+}
+
+.btn-collapse {
+    position: relative;
+    z-index: 999;
+    display: block;
+    width: 100%;
+    font-size: 85%;
+    text-align: center;
+    cursor: pointer;
+
+    &::before {
+        display: block;
+        width: 100%;
+        height: 1.5em;
+        content: "";
+        -webkit-filter: progid:dximagetransform.microsoft.gradient(startColorstr="#00ffffff", endColorstr="#ffffff", GradientType=0);
+                filter: progid:dximagetransform.microsoft.gradient(startColorstr="#00ffffff", endColorstr="#ffffff", GradientType=0);
+        border-bottom: 1px solid $gray-300;
+    }
+
+    &::after {
+        position: relative;
+        top: -.8em;
+        display: inline-block;
+        padding: 0 .5em;
+        font-weight: 700;
+        color: $gray-500;
+        content: attr(data-show-more);
+        background-color: white;
+    }
+
+    i {
+        position: absolute;
+        top: 1.5em;
+        right: 0;
+        left: 0;
+        color: $gray-500;
+    }
+
+    &.opened,
+    &:not(.collapsed) {
+        &::after {
+            content: attr(data-show-less);
+        }
+
+        i {
+            top: 0;
+            bottom: 1.5em;
+            -webkit-transform: rotate(180deg);
+                    transform: rotate(180deg);
+        }
+    }
+}
+
+// Responsive button text and icon visibility
+
+@each $bp in map-keys($grid-breakpoints) {
+    .btn-only-icon-#{$bp}-up {
+        @include media-breakpoint-up($bp) {
+            width: 2.2rem !important;
+            height: 2.2rem;
+            padding-right: 8px;
+
+            & span {
+                display: none !important;
+            }
+        }
+    }
+    .btn-only-icon-#{$bp}-down {
+        @include media-breakpoint-down($bp) {
+            & span {
+                display: none !important;
+            }
+            i {
+                float: none !important;
+                margin: 0 !important;
+            }
+        }
+    }
+}
+
+.center-xy {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; // center on the x axys
+
+    img,
+    .owl-stage-outer {
+        -ms-flex-item-align: center;
+            align-self: center; // center on the y axys
+    }
+}
+
+.not-found-text {
+    font-size: 115px;
+    text-shadow: 4px 3px 0 $gray-100, 9px 8px 0 $gray-300;
+}
+
+// TODO: resolve usages to .container
+.container-max {
+    @extend .container-fluid;
+    z-index: auto;
+    max-width: 1200px;
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @include media-breakpoint-up($breakpoint) {
+        @each $size, $height in $heights {
+            .mh#{$infix}-#{$size} {
+                min-height: map-get($height, $breakpoint) !important;
+
+                $bp: breakpoint-next($breakpoint);
+                @while $bp != null {
+                    @include media-breakpoint-up($bp) {
+                        min-height: map-get($height, $bp) !important;
+                    }
+                    $bp: breakpoint-next($bp);
+                }
+            }
+        }
+    }
+}
+
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -12415,91 +12856,38 @@ $flag-icon-square-path: '/1x1' !default;
 
 
 
-// ==========================================================================
-// Custom styles
-// ==========================================================================
+.fa.none {
+    @extend .fa-circle;
+    color: transparent !important; // stylelint-disable-line declaration-no-important
+}
 
-// global
-/// mimics the image-background: cover; behaviour but with img element
-///
-/// @author Bruno Fenzl
-///
-/// @example scss - Basic Usage HTML
-///     <div class="img-cover-container">
-///         img class="" src="">
-///     </div>
-@mixin img-cover {
-    position: relative;
-    overflow: hidden;
+.modal-header {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
 
-    & > img {
-        position: absolute;
-        top: -9999px;
-        right: -9999px;
-        bottom: -9999px;
-        left: -9999px;
-        min-width: 100%;
-        min-height: 100%;
-        margin: auto;
+.modal-footer {
+    > .fa {
+        margin-top: 1px;
+        margin-left: 5px;
     }
 }
 
-/// mimics the image-background: contain; behaviour but with img element
-///
-/// @author Bruno Fenzl
-///
-/// @example scss - Basic Usage HTML
-///     <div class="img-contain-container">
-///         img src="">
-///     </div>
-@mixin img-contain {
-    position: relative;
-    overflow: hidden;
-
-    & > noscript,
-    a > img {
-        position: absolute;
-        top: -9999px;
-        right: -9999px;
-        bottom: -9999px;
-        left: -9999px;
-        width: auto;
-        max-width: 100%;
-        height: auto;
-        max-height: 100%;
-        margin: auto;
+@include media-breakpoint-down(xs) {
+    html.facebook {
+        .checkout .modal.show,
+        .myaccount .modal.show {
+            position: absolute !important;
+            min-height: 100vh;
+            -webkit-transform: translateZ(0);
+                    transform: translateZ(0);
+        }
+        body.modal-open {
+            position: relative !important;
+            overflow: auto !important;
+        }
     }
-
-    & .owl-carousel,
-    & .owl-stage-outer,
-    & .owl-stage,
-    & .owl-item {
-        height: 100%;
-    }
-
-    & .owl-item img {
-        position: absolute;
-        top: -9999px;
-        right: -9999px;
-        bottom: -9999px;
-        left: -9999px;
-        width: auto;
-        max-width: 100%;
-        height: auto;
-        max-height: 100%;
-        margin: auto;
-    }
-}
-
-@mixin reset-list() {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-@mixin context-bg($color) {
-    color: color-yiq($color);
-    background-color: $color;
 }
 
 [class^="prop-"] {
@@ -12523,114 +12911,7 @@ $flag-icon-square-path: '/1x1' !default;
     }
 }
 
-body,
-body .wrapper-main {
-    overflow-x: hidden;
-}
-
-.sb-no-animation.collapsing {
-    display: none !important;
-    -webkit-transition: none !important;
-    transition: none !important;
-}
-
-.hidden {
-    display: none;
-}
-
-.hidden-sm {
-    @include media-breakpoint-only(sm) {
-        display: none;
-    }
-}
-
-.center-xy {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row nowrap;
-            flex-flow: row nowrap;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center; // center on the x axys
-
-    img,
-    .owl-stage-outer {
-        -ms-flex-item-align: center;
-            align-self: center; // center on the y axys
-    }
-}
-
-.category-contact .main .container-max {
-    padding-top: $spacer;
-    margin-top: 2 * $spacer;
-    margin-bottom: 2 * $spacer;
-    background-color: $white;
-}
-
-.page-content {
-    padding-top: $spacer;
-    background-color: $gray-100;
-    &.basket,
-    &.checkout,
-    &.contact,
-    &.wishlist,
-    &.myaccount {
-        &:not(.checkout):not(.basket) {
-            background-color: $white;
-        }
-        padding-bottom: 30px;
-        margin-top: 30px;
-        color: $gray-900;
-    }
-}
-.container-max {
-    @extend .container-fluid;
-    z-index: auto;
-    max-width: 1200px;
-
-    &.login {
-        margin-top: 2rem;
-    }
-}
-
-.page-not-found {
-    i.fa-search {
-        font-size: 10em;
-    }
-    i.fa-home {
-        margin-top: 2px;
-        margin-left: 5px;
-    }
-    .default-not-found {
-        background-color: rgb(247, 247, 249);
-    }
-}
-
-.not-found-text {
-    font-size: 115px;
-    text-shadow: 4px 3px 0 #f7f7f9, 9px 8px 0 rgba(218, 218, 227, .5);
-}
-
-.rating {
-    line-height: 1;
-
-    .tag,
-    .badge {
-        padding-right: 0;
-        overflow: hidden;
-        cursor: pointer;
-
-        .amount {
-            padding: .1rem .6rem .1rem .4rem;
-            margin-left: .2rem;
-            background-color: $gray-600;
-        }
-    }
-}
-
+// additional compatibility scss to bootstrap's reboot
 dt {
     font-weight: 400;
 }
@@ -12641,91 +12922,22 @@ a:active {
     text-decoration: none;
 }
 
-.border-left {
-    border-left: 1px solid $gray-700;
-}
-
-
-.carousel-control-next,
-.carousel-control-prev {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    width: 15%;
-    color: #fff;
-    text-align: center;
-    opacity: .5;
-}
-.carousel-control-prev {
-    left: 0;
-}
-.carousel-control-next {
-    right: 0;
-}
-.carousel-control-next-icon,
-.carousel-control-prev-icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background: transparent no-repeat center center;
-    background-size: 100% 100%;
-}
-
-.content-center {
-    float: none;
-    margin: 0 auto;
-}
-
-.flex-center {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-}
-
-.text-wrap {
-    white-space: normal;
-}
-
-.is_stuck {
-    z-index: 1;
-}
-
-.sticky-element.is-sticky {
-    z-index: $zindex-sticky !important;
-}
-
-.inline-select {
-    margin-left: -7px;
-    font-weight: inherit;
-    text-decoration: underline;
-}
-
-@each $color, $value in $theme-colors {
-    @include bg-variant(".bg-#{$color}", $value);
-    .bg-#{$color} {
-        @include context-bg($value);
+// prevent iOS standard zoom on input elements on focus
+html.ios {
+    input,
+    select,
+    textarea {
+        font-size: 16px !important;
     }
-}
-
-.fa.none {
-    @extend .fa-circle;
-    color: transparent !important;
 }
 
 html {
     font-size: $font-size-root;
+}
+
+body,
+body .wrapper-main {
+    overflow-x: hidden;
 }
 
 body {
@@ -12872,322 +13084,20 @@ body {
     }
 }
 
-.modal-header {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+.hidden {
+    display: none;
 }
 
-.modal-footer {
-    > .fa {
-        margin-top: 1px;
-        margin-left: 5px;
+.hidden-sm {
+    @include media-breakpoint-only(sm) {
+        display: none;
     }
 }
-
-@include media-breakpoint-down(xs) {
-    html.facebook {
-        .checkout .modal.show,
-        .myaccount .modal.show {
-            position: absolute !important;
-            min-height: 100vh;
-            -webkit-transform: translateZ(0);
-                    transform: translateZ(0);
-        }
-        body.modal-open {
-            position: relative !important;
-            overflow: auto !important;
-        }
-    }
-}
-
-// additional compatibility scss to bootstrap's reboot
-
-// prevent iOS standard zoom on input elements on focus
-html.ios {
-    input,
-    select,
-    textarea {
-        font-size: 16px !important;
-    }
-}
-
-.input-group {
-
-    .input-unit + .input-group-btn {
-        padding-bottom: $grid-gutter-width/2;
-
-        .btn {
-            height: calc(2.8em + 1px);
-        }
-    }
-
-    &.vert {
-        .input-group-btn {
-            display: block;
-            width: 100%;
-
-            .btn {
-                width: 100%;
-                margin: 0;
-            }
-        }
-
-        //.form-control:not(:last-child),
-        .input-group-addon:not(:last-child),
-        .input-group-btn:not(:last-child) > .btn,
-        .input-group-btn:not(:last-child) > .btn-group > .btn,
-        .input-group-btn:not(:last-child) > .dropdown-toggle,
-        .input-group-btn:not(:first-child) > .btn:not(:last-child):not(.dropdown-toggle),
-        .input-group-btn:not(:first-child) > .btn-group:not(:last-child) > .btn {
-            @include border-bottom-radius(0);
-            @include border-top-radius($border-radius);
-            border-bottom: none;
-        }
-        .input-group-addon:not(:last-child) {
-            border-bottom: 0;
-        }
-        .input-group .form-control:not(:first-child),
-        .input-group-addon:not(:first-child),
-        .input-group-btn:not(:first-child) > .btn,
-        .input-group-btn:not(:first-child) > .btn-group > .btn,
-        .input-group-btn:not(:first-child) > .dropdown-toggle,
-        .input-group-btn:not(:last-child) > .btn:not(:first-child),
-        .input-group-btn:not(:last-child) > .btn-group:not(:first-child) > .btn {
-            @include border-bottom-radius($border-radius);
-            @include border-top-radius(0);
-            border-top: none;
-        }
-        .form-control + .input-group-addon:not(:first-child) {
-            border-top: 0;
-        }
-
-        .form-control {
-            display: block;
-            float: none;
-            border-radius: 0 !important;
-        }
-    }
-}
-
-button:focus {
-    outline: none;
-}
-
-// button combinations
-.btn-group.extended,
-.input-group.extended {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-
-    .extended {
-        -webkit-box-flex: 1;
-            -ms-flex: 1;
-                flex: 1;
-
-        .btn {
-            width: 100%;
-        }
-    }
-
-    .input-group-btn {
-        width: auto;
-    }
-}
-
-.btn {
-    word-break: break-word;
-    outline: 0 !important;
-
-    & .btn-label {
-        &.btn-trans {
-            background: transparent;
-        }
-    }
-
-    & > .fa {
-        float: right;
-
-        &.default-float {
-            float: none;
-        }
-    }
-
-    & > span + .fa {
-        margin-top: 1px;
-        margin-left: 5px;
-    }
-
-    &.btn-medium {
-        min-width: 10rem;
-    }
-
-    &.btn-md {
-        padding-top: .8rem;
-        padding-bottom: .8rem;
-    }
-
-    &.btn-medium-large {
-        min-width: 12rem;
-    }
-
-    &.btn-large {
-        min-width: 15rem;
-    }
-
-    &.btn-block {
-        > .fa {
-            margin-top: 0;
-            line-height: inherit;
-        }
-    }
-}
-
-.btn-xs-max-width {
-    @include media-breakpoint-down(xs) {
-        width: 100% !important;
-    }
-}
-
-.btn-labeled {
-    padding-top: 0;
-    padding-bottom: 0;
-
-    @extend .small;
-
-    -webkit-transition: all 200ms;
-
-    transition: all 200ms;
-
-    .btn-label {
-        position: relative;
-        right: -#{$btn-padding-x-sm};
-        display: inline-block;
-        padding: $btn-padding-y-sm $btn-padding-x-sm;
-        background-color: rgba(0, 0, 0, .15);
-        border-top-right-radius: $border-radius-sm;
-        border-bottom-right-radius: $border-radius-sm;
-    }
-
-    &.label-right {
-        .btn-label {
-            right: auto;
-            left: -#{$btn-padding-x-sm};
-        }
-    }
-
-
-    &.btn-link {
-        padding-right: 0;
-        padding-left: 0;
-
-        .btn-label {
-            padding: $btn-padding-y-sm 0;
-            background-color: rgba(0, 0, 0, 0);
-        }
-    }
-}
-
-.btn-icon {
-    padding: .6rem;
-    .fa {
-        text-align: center;
-    }
-
-    &.btn-sm {
-        padding: .4rem;
-    }
-
-    &.btn-lg {
-        padding: .95rem;
-    }
-
-    &.btn-circle {
-        border-radius: 50%;
-    }
-}
-
-.btn-default {
-    @include button-variant($gray-300, $gray-300);
-}
-
-.btn-collapse {
-    position: relative;
-    z-index: 999;
-    display: block;
-    width: 100%;
-    font-size: 85%;
-    text-align: center;
-    cursor: pointer;
-
-    &::before {
-        display: block;
-        width: 100%;
-        height: 1.5em;
-        content: "";
-        -webkit-filter: progid:dximagetransform.microsoft.gradient(startColorstr="#00ffffff", endColorstr="#ffffff", GradientType=0);
-                filter: progid:dximagetransform.microsoft.gradient(startColorstr="#00ffffff", endColorstr="#ffffff", GradientType=0);
-        border-bottom: 1px solid $gray-300;
-    }
-
-    &::after {
-        position: relative;
-        top: -.8em;
-        display: inline-block;
-        padding: 0 .5em;
-        font-weight: 700;
-        color: $gray-500;
-        content: attr(data-show-more);
-        background-color: white;
-    }
-
-    i {
-        position: absolute;
-        top: 1.5em;
-        right: 0;
-        left: 0;
-        color: $gray-500;
-    }
-
-    &.opened,
-    &:not(.collapsed) {
-        &::after {
-            content: attr(data-show-less);
-        }
-
-        i {
-            top: 0;
-            bottom: 1.5em;
-            -webkit-transform: rotate(180deg);
-                    transform: rotate(180deg);
-        }
-    }
-}
-
-// Responsive button text and icon visibility
 
 @each $bp in map-keys($grid-breakpoints) {
-    .btn-only-icon-#{$bp}-up {
-        @include media-breakpoint-up($bp) {
-            width: 2.2rem !important;
-            height: 2.2rem;
-            padding-right: 8px;
-
-            & span {
-                display: none !important;
-            }
-        }
-    }
-    .btn-only-icon-#{$bp}-down {
+    .hidden-#{$bp}-down {
         @include media-breakpoint-down($bp) {
-            & span {
-                display: none !important;
-            }
-            i {
-                float: none !important;
-                margin: 0 !important;
-            }
+            display: none !important;
         }
     }
 }
@@ -14185,6 +14095,9 @@ html.ie {
     pointer-events: none;
 }
 
+.sticky-element.is-sticky {
+    z-index: $zindex-sticky !important; // stylelint-disable-line declaration-no-important
+}
 
 // Forms
 .input-group-v {
@@ -19928,6 +19841,40 @@ html.ie .v-s-boxes .v-s-box.invalid {
     }
 }
 
+.carousel-control-next,
+.carousel-control-prev {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 15%;
+    color: #fff;
+    text-align: center;
+    opacity: .5;
+}
+.carousel-control-prev {
+    left: 0;
+}
+.carousel-control-next {
+    right: 0;
+}
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: transparent no-repeat center center;
+    background-size: 100% 100%;
+}
+
 @mixin widget-carousel-variant($parent, $color) {
     .widget-image-carousel#{$parent} {
         .widget-caption h2,
@@ -20340,13 +20287,6 @@ html.ie {
     }
 }
 
-.checkout {
-    .widget-grid > .widget-inner > div {
-        padding: $spacer;
-        background-color: $white;
-    }
-}
-
 html.ie .widget-grid .widget-inner-stacked {
     display: block;
 }
@@ -20737,15 +20677,6 @@ header .widget {
 }
 
 
-
-// Bootstrap Compatibility
-@each $bp in map-keys($grid-breakpoints) {
-    .hidden-#{$bp}-down {
-        @include media-breakpoint-down($bp) {
-            display: none !important;
-        }
-    }
-}
 
 
 

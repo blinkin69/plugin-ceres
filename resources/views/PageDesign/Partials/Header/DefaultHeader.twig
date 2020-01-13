@@ -2,7 +2,7 @@
 
 <header id="page-header" class="top-bar header-fw fixed-top">
     <div>
-        <div class="container-max">
+        <div class="container">
             <div class="row mx-0">
                 {{ LayoutContainer.show("Ceres::Header.LeftSide") }}
 
@@ -90,7 +90,7 @@
     {% include "Ceres::PageDesign.Partials.Header.Breadcrumb" %}
 {% endif %}
 
-<div class="container-max page-header">
+<div class="container page-header">
     <div class="row mx-0">
         <div id="searchBox" class="cmp cmp-search-box collapse">
             {% set overrideSearchBar = LayoutContainer.show("Ceres::Search.SearchBar") %}
@@ -103,7 +103,7 @@
 
         {% if enableCurrencySelect == "true" %}
             <div id="currencySelect" class="cmp cmp-currency-select collapse">
-                <div class="container-max">
+                <div class="container">
                     <div class="row p-3">
 
                         <div class="currency-list col-12">
@@ -131,7 +131,7 @@
         {% endif %}
 
         <div id="countrySettings" class="cmp cmp-country-settings collapse">
-            <div class="container-max">
+            <div class="container">
                 <div class="row p-3">
                     <div class="col-12 col-lg-6">
 

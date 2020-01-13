@@ -13,10 +13,3 @@
     font-size: 115px;
     text-shadow: 4px 3px 0 $gray-100, 9px 8px 0 $gray-300;
 }
-
-// TODO: resolve usages to .container
-.container-max {
-    @extend .container-fluid;
-    z-index: auto;
-    max-width: 1200px;
-}

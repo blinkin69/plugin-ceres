@@ -211,4 +211,5 @@ window.ceresTranslate = TranslationService.translate;
 
 Vue.prototype.$translate = TranslationService.translate;
 Vue.prototype.$ceres = App;
+Vue.config.performance = true;
 document.dispatchEvent(new CustomEvent("ceres-ready"));

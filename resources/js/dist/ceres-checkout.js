@@ -87813,6 +87813,7 @@ vue__WEBPACK_IMPORTED_MODULE_2___default.a.component("wish-list-count", _app_com
 window.ceresTranslate = _app_services_TranslationService__WEBPACK_IMPORTED_MODULE_89__["default"].translate;
 vue__WEBPACK_IMPORTED_MODULE_2___default.a.prototype.$translate = _app_services_TranslationService__WEBPACK_IMPORTED_MODULE_89__["default"].translate;
 vue__WEBPACK_IMPORTED_MODULE_2___default.a.prototype.$ceres = App;
+vue__WEBPACK_IMPORTED_MODULE_2___default.a.config.performance = true;
 document.dispatchEvent(new CustomEvent("ceres-ready"));
 
 /***/ }),

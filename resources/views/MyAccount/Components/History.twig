@@ -1,5 +1,4 @@
-{{ component( "Ceres::MyAccount.Components.OrderHistory" ) }}
-{{ component( "Ceres::MyAccount.Components.OrderReturnHistory" ) }}
+
 
 <script type="x/template" id="vue-history">
 	<div class="page-content basket history container-max mb-5">
@@ -10,7 +9,7 @@
 			<li class="nav-item" v-if="isReturnActive && contactHasReturns">
 				<a @click="returnsTabsOpened()" class="nav-link" data-toggle="tab" href="#order-return-tab" role="tab" aria-expanded="false">{{ trans("Ceres::Template.returnHistory") }}</a>
 			</li>
-		</ul>	
+		</ul>
 
 		<div class="tab-content">
             <div class="tab-pane active" id="order-history-tab" role="tabpanel" aria-expanded="true">

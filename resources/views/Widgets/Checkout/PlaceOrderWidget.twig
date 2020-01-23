@@ -2,7 +2,7 @@
 {% import "Ceres::Widgets.Helper.WidgetHelper" as WidgetHelper %}
 
 {{ Twig.import("LayoutContainer", "Ceres::PageDesign.Macros.LayoutContainer") }}
-{{ Twig.component("Ceres::Checkout.Components.PlaceOrder") }}
+
 
 {% set customClass = widget.settings.customClass.mobile %}
 {% set spacingSettings = widget.settings.spacing %}
@@ -25,6 +25,6 @@
         {% if spacingPadding | length > 0 %}padding-classes="{{ spacingPadding }}"{% endif %}
         {% if inlinePadding | length > 0 %}padding-inline-styles="{{ inlinePadding }}"{% endif %}>
     </place-order>
-    
+
     {{ Twig.print(Twig.call("LayoutContainer.show", ["Ceres::Checkout.AfterPlaceOrder"])) }}
 </div>

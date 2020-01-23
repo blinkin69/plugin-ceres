@@ -2,8 +2,6 @@
 {% import "Ceres::Widgets.Helper.WidgetHelper" as WidgetHelper %}
 
 {{ Twig.import("LayoutContainer", "Ceres::PageDesign.Macros.LayoutContainer") }}
-{{ Twig.component("Ceres::Customer.Components.AddressSelect.AddressHeader") }}
-{{ Twig.component("Ceres::MyAccount.Components.ChangePaymentMethod") }}
 
 {% set showCustomerId   = widget.settings.showCustomerId.mobile %}
 {% set customClass      = widget.settings.customClass.mobile %}

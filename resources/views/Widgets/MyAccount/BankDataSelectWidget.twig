@@ -9,8 +9,6 @@
 
 {{ Twig.import("LayoutContainer", "Ceres::PageDesign.Macros.LayoutContainer") }}
 
-{{ Twig.component("Ceres::MyAccount.Components.BankDataSelect") }}
-
 {{ Twig.set("userBankData", Twig.call("services.contactBank.getBanksOfContact", ["$frontend.Account.AccountContactId"])) }}
 {% set appearance = widget.settings.appearance.mobile %}
 {% set hintText = widget.settings.text.mobile %}

@@ -1,7 +1,6 @@
 {% extends getPartial('page-design') %}
 
 {% block PageBody %}
-    {{ component( "Ceres::Checkout.Components.Checkout" ) }}
 
     {% set shopBuilderTemplate = shop_builder_category_template(category.id, "checkout") %}
     {% if shopBuilderTemplate | trim is not empty %}

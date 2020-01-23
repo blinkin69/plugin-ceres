@@ -6,7 +6,6 @@
 {% set inlineSpacings = WidgetHelper.getInlineSpacings(spacingSettings, spacingSettings.customPadding.mobile, spacingSettings.customMargin.mobile) %}
 {% set spacingClasses = WidgetHelper.getSpacingClasses(spacingSettings, spacingSettings.customPadding.mobile, spacingSettings.customMargin.mobile) %}
 
-{{ Twig.component( "Ceres::MyAccount.Components.OrderHistoryList" ) }}
 
 {% set hintText = widget.settings.hintText.mobile %}
 {% set appearance = widget.settings.appearance.mobile | default('primary') %}

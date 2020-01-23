@@ -1,4 +1,4 @@
-{{ component( "Ceres::Customer.Components.SalutationSelect" ) }}
+
 
 <div class="col-12">
     <div class="row">
@@ -50,7 +50,7 @@
                     <label :for="'txtFirstName' + _uid">{{ trans("Ceres::Template.addressFirstName") }}<template v-if="areNameFieldsRequired('de', 'delivery_address')">*</template></label>
                 </div>
             </div>
-    
+
             {# Last name #}
             <div class="col-12 col-sm-4">
                 <div class="input-unit" data-model="name3" v-validate:text="areNameFieldsRequired('de', 'delivery_address')">

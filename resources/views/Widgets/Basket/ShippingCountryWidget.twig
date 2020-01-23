@@ -1,7 +1,6 @@
 {% import "Ceres::Widgets.Helper.TwigBuilder" as Twig %}
 {% import "Ceres::Widgets.Helper.WidgetHelper" as WidgetHelper %}
 
-{{ Twig.component("Ceres::Basket.Components.BasketShippingCountrySelect") }}
 
 {% set customClass     = widget.settings.customClass.mobile %}
 {% set spacingSettings = widget.settings.spacing %}
@@ -15,5 +14,5 @@
         <shipping-country-select template="#vue-basket-shipping-country-select">
         </shipping-country-select>
     </div>
-    
+
 </div>

@@ -1,4 +1,4 @@
-{{ component( "Ceres::Item.Components.QuantityInput" ) }}
+
 
 <script type="x/template" id="vue-add-to-basket">
     <div>
@@ -18,7 +18,7 @@
                     <quantity-input :value="quantity"
                                 @quantity-change="updateQuantity"
                                 @out-of-stock="handleButtonState"
-                                :timeout="0" 
+                                :timeout="0"
                                 :min="minimumQuantity"
                                 :max="maximumQuantity"
                                 :interval="intervalQuantity"

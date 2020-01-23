@@ -1,8 +1,6 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 {% set backlink = request.get("backlink") %}
 
-{{ component( "Ceres::Customer.Components.GuestLogin" ) }}
-
 <script type="x/template" id="vue-login-view" >
     <div class="container-max login">
         <div class="row mb-5">
@@ -46,7 +44,7 @@
                     </div>
                     <div class="modal-body">
                         <guest-login backlink="{{ backlink | url_encode }}" :initial-email="{{ services.sessionStorage.getSessionValue("guestEmail") | json_encode }}"></guest-login>
-                    </div>       
+                    </div>
                 </div>
             </div>
         </div>

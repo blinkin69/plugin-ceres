@@ -1,5 +1,3 @@
-{{ component( "Ceres::MyAccount.Components.ChangePaymentMethod" ) }}
-{{ component( "Ceres::MyAccount.Components.OrderHistoryListItem" ) }}
 
 <script type="x/template" id="vue-order-history-list">
     <div class="order-history-list">
@@ -28,7 +26,7 @@
                 </div>
                 <div class="col-md-2"><template v-if="showTrackingColumn">{{ trans("Ceres::Template.orderHistoryTracking") }}</template></div>
             </div>
-            
+
             <div class="order-item border-top">
                 <order-history-list-item
                     v-for="order in orderList.entries"

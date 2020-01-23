@@ -1,4 +1,4 @@
-{{ component( "Ceres::Item.Components.ItemBundle" ) }}
+
 
 <script type="x/template" id="vue-order-return-item">
 	<article class="basket-item-container basket-list-item">
@@ -16,7 +16,7 @@
 							<a :href="orderItemURL" class="item-name text-primary text-appearance">
 								${ orderItem | itemBundleName }
 							</a>
-							
+
 							<div class="item-base-price">
 								<template v-if="isNet">
 									${ amount.priceNet | currency(amount.currency) }

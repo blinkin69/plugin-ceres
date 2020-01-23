@@ -9,7 +9,6 @@
 {% set spacingMargin   = WidgetHelper.getSpacingClasses(spacingSettings, "", spacingSettings.customMargin.mobile) %}
 
 {{ Twig.import("LayoutContainer", "Ceres::PageDesign.Macros.LayoutContainer") }}
-{{ Twig.component("Ceres::Checkout.Components.PaymentProviderSelect") }}
 
 {{ Twig.set("overridePaymentList", Twig.call("LayoutContainer.show", ["Ceres::Checkout.PaymentList"])) }}
 {% set hintText = widget.settings.hintText.mobile %}

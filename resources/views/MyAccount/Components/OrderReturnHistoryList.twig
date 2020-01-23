@@ -1,4 +1,4 @@
-{{ component("Ceres::MyAccount.Components.OrderReturnHistoryListItem") }}
+
 
 <script type="x/template" id="vue-order-return-history-list">
     <div class="order-return-history-list">
@@ -29,7 +29,7 @@
 			</div>
 			<div v-if="!waiting" class="order-list border-top">
                 <order-return-history-list-item v-for="returnOrder in returnsList.entries"
-                    :return-order="returnOrder" 
+                    :return-order="returnOrder"
                     :key="returnOrder.order.id">
                 </order-return-history-list-item>
 			</div>

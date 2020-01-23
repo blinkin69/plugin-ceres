@@ -1,4 +1,3 @@
-{{ component("Ceres::MyAccount.Components.OrderDocuments") }}
 
 <script type="x/template" id="vue-order-return-history-list-item">
     <div :id="'accordion_' + _uid" class="accordion col-sm-12">
@@ -57,8 +56,8 @@
                             </template>
                         </div>
                     </div>
-                </div> 
-            </div> 
+                </div>
+            </div>
             <div class="col-sm-12 text-center mb-2">
                 <a class="text-primary text-appearance" v-if="returnOrder.order.orderItems.length > 5" @click="toggleShowAllOrderItems()" :id="'more-return-text-' + _uid" data-toggle="collapse" :href="'#more-return-items-' + _uid" aria-expanded="false" aria-controls="collapseExample">
                     <template v-if="showAllOrderItems">
@@ -69,6 +68,6 @@
                     </template>
                 </a>
             </div>
-        </div> 
+        </div>
     </div>
 </script>

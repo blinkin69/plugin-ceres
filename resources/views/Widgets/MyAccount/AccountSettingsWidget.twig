@@ -10,8 +10,6 @@
 
 {{ Twig.import("LayoutContainer", "Ceres::PageDesign.Macros.LayoutContainer") }}
 
-{{ Twig.component("Ceres::MyAccount.Components.AccountSettings") }}
-
 {{ Twig.set("userObject", Twig.call("services.customer.getContact")) }}
 {% set appearance = widget.settings.appearance.mobile %}
 {% set hintText = widget.settings.text.mobile %}
@@ -27,7 +25,7 @@
         {% endif %}
     </div>
 
-    <div class="card {% if spacingPadding | length > 0 %} {{ spacingPadding }}{% endif %}" 
+    <div class="card {% if spacingPadding | length > 0 %} {{ spacingPadding }}{% endif %}"
         {% if inlinePadding | length > 0 %} style="{{ inlinePadding }}"{% endif %}>
         <account-settings :user-data="{{ Twig.print("userObject | json_encode") }}"></account-settings>
     </div>

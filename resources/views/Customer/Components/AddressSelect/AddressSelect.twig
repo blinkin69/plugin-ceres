@@ -1,5 +1,3 @@
-{{ component( "Ceres::Customer.Components.AddressSelect.CreateUpdateAddress") }}
-{{ component( "Ceres::Customer.Components.AddressSelect.AddressHeader") }}
 
 
 <script type="x/template" id="vue-address-select">
@@ -131,7 +129,7 @@
                                                 <template v-if="addressToDelete.address1 === 'PACKSTATION' || addressToDelete.address1 === 'POSTFILIALE'">
                                                     {{ trans("Ceres::Template.addressPostNummer") }}
                                                     ${addressToDelete | optionType(6)}
-                                                </template> 
+                                                </template>
                                                 ${ addressToDelete.address3 }
                                             </span>
                                             <span>${addressToDelete.postalCode} ${addressToDelete.town}</span>

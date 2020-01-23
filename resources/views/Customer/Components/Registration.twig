@@ -1,7 +1,5 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 
-{{ component( "Ceres::Customer.Components.AddressInputGroup.AddressInputGroup" ) }}
-
 <script type="x/template" id="vue-registration">
     <form class="w-100" autocomplete="on" method="post" @submit.prevent="validateRegistration()" ref="registrationForm">
         <div class="row">
@@ -69,9 +67,9 @@
         </div>
         <div class="border-top mt-2 text-right">
             {{ LayoutContainer.show("Ceres::RegistrationOverlay.ExtendOverlayButtons") }}
-            
+
             <button :disabled="isDisabled" class="btn btn-appearance btn-primary btn-medium mt-3" :class="buttonSizeClass">
-                <i class="fa fa-user-plus" v-waiting-animation="isDisabled" aria-hidden="true"></i> 
+                <i class="fa fa-user-plus" v-waiting-animation="isDisabled" aria-hidden="true"></i>
                 {{ trans("Ceres::Template.regRegister") }}
             </button>
         </div>

@@ -69,6 +69,13 @@
     .icons-loading .fa { visibility: hidden !important; }
 </style>
 
+
+{% if ceresConfig.log.performanceLevel  == 'development' %}
+    <link href="{{ plugin_path('Ceres') }}/js/dist/{{ assetName }}.js?v={{ buildHash }}" rel="preload" as="script"></link>
+{% else %}
+    <link href="{{ plugin_path('Ceres') }}/js/dist/{{ assetName }}.min.js?v={{ buildHash }}" rel="preload" as="script"></link>
+{% endif %}
+
 {% set iconCSS = plugin_path("Ceres") ~ "/css/ceres-icons.css" %}
 {# asynchronously load icons.css #}
 <link rel="preload" href="{{ iconCSS }}" as="style" onload="this.onload=null;this.rel='stylesheet';">
